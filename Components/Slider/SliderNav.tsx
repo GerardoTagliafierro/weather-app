@@ -8,7 +8,6 @@ interface SliderNavProps{
 }
 
 const SliderNav = ({carouselRefCurrent, length}:SliderNavProps) => {
-    console.log(carouselRefCurrent._activeItem)
   return (
     <View style={styles.navigationContainer}>
         <SliderNavButton

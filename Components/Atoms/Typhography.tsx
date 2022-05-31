@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, TextProps } from 'react-native'
 
 interface TypographyProps {
     variant: "body" | "h3" | "h2" | "h1",
-    children?: React.ComponentType | string | number,
+    children?: React.ReactNode,
     style?: any
 }
 

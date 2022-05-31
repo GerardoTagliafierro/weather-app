@@ -4,7 +4,10 @@ export type City = {
     name: string;
     temp?: number;
     humidity?: number | string; 
-    icon?: string
+    icon?: string,
+    desc?: string,
+    feelsLike?: number;
+    windSpeed?: number
 }
 
 export interface WeatherData {

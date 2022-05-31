@@ -9,7 +9,7 @@ import Slide from '../Slider/Slide'
 import SliderNav from '../Slider/SliderNav'
 
 const SliderScreen = () => {
-    
+
     const [activeSlide, setActiveSlide] = useState(0)
 
     const store = useSelector(selectState)
@@ -37,7 +37,7 @@ const SliderScreen = () => {
                 renderItem={Slide}
                 sliderWidth={Dimensions.get("screen").width - 20 }
                 itemWidth={Dimensions.get("screen").width - 20 }
-                layout={'default'}
+                layout={"stack"}
                 layoutCardOffset={20}
                 onSnapToItem={(i) => {setActiveSlide(i)}}
             />

@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 
 
-const WeatherIcon = ({icon}:{icon?: string}) => {
+const WeatherIcon = ({icon, size}:{icon?: string, size?: number}) => {
 
     const parseIcon = (icon?: string) => {
         switch (icon) {
@@ -27,7 +27,7 @@ const WeatherIcon = ({icon}:{icon?: string}) => {
     }
 
     return (
-            <Image source={parseIcon(icon)}/>
+        <Image style={size ? {width: size, height: size} : {}} source={parseIcon(icon)}/>
     )
 }
 

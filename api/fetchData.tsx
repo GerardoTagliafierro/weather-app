@@ -29,13 +29,17 @@ const transformToWeatherData = (data: any):WeatherDataResponse => {
 
 const transformToCitydata = (data: any):City => {
 
+
     return {
         name: data.data.name,
         temp: data.data.main.temp,
         humidity: data.data.main.humidity,
-        icon: data.data.weather[0].icon
+        icon: data.data.weather[0].icon,
+        desc: data.data.weather[0].description,
+        feelsLike: Math.round(data.data.main.feels_like - 273),
+        windSpeed: data.data.wind.speed
     }
-    
+
 }
 
 export const getWeatherByCityName = async (name: string):Promise<WeatherDataResponse> => {

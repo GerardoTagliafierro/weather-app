@@ -8,18 +8,48 @@ interface SlideProps{
     item: City
 }
 
+interface ListItemProps{
+    label: React.ReactNode,
+    value: React.ReactNode
+}
+
+const ListItem = ({label, value}:ListItemProps) => {
+    return (
+        <Typhography style={{paddingLeft: 15}}variant='body'>
+            <Typhography variant='h3'>
+                {label}
+            </Typhography>
+            <Typhography style={styles.listAttr} variant='h3'>
+                {value}
+            </Typhography>
+        </Typhography>
+    )
+}
+
 const Slide = ({item}:SlideProps) => {
     return (
         <View style={[styles.slide, styles.shadowProp]}>
-            <View style={styles.row}>
-                <Typhography style={styles.heading} variant='h1'>{item.name}</Typhography>
+            <View style={[styles.row, styles.dividerRow]}>
                 {item.temp &&(
-                    <Typhography style={styles.heading} variant='h1'>
+                    <Typhography style={styles.temp} variant='h1'>
                         {Math.round(item.temp - 273) + "°"}
                     </Typhography>
                 )}
+                <WeatherIcon icon={item.icon}/>        
             </View>
-            <WeatherIcon icon={item.icon}/>
+            <View style={styles.row}>
+                <View style={[styles.halfCol, styles.divider]}>
+                    <Typhography style={styles.heading} variant='h1'>{item.name}</Typhography>
+                    <Typhography style={{color: "#132f5e"}} variant='h3'>
+                        {item.desc}
+                    </Typhography>
+                </View>
+                <View  style={styles.halfCol}>
+                    <ListItem label="Humidity: " value={item.humidity + "%"}/>
+                    <ListItem label="Feels Like: " value={item.feelsLike + "°"}/>
+                    <ListItem label="Wind: " value={item.feelsLike + "m/s"}/>
+                </View>
+            </View>
         </View>
     )
 }
@@ -30,8 +60,11 @@ const styles = StyleSheet.create({
     slide:{
         backgroundColor:'#b5d8f5',
         height: 250,
-        padding: 50,
+        paddingLeft: 25,
+        paddingRight: 25,
         borderRadius: 20,
+        paddingTop: 20,
+        paddingBottom: 20,
         margin:20,
         shadowColor: "#000",
         shadowOffset: {
@@ -53,7 +86,29 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between"
     },
+    temp:{
+        fontSize: 70,
+        color: "#ffffff"
+    },
     heading:{
-        fontSize: 35
+        fontSize: 24,
+        color: "#132f5e"
+    },
+    halfCol:{
+        width: "50%",
+        padding: 5
+    },
+    divider:{
+        borderRightWidth: 1,
+        borderColor: "#132f5e"
+    },
+    dividerRow:{
+        borderBottomWidth: 1,
+        borderColor: "#132f5e",
+        marginBottom: 20,
+        paddingBottom: 20
+    },
+    listAttr:{
+        fontWeight: "normal"
     }
 })
