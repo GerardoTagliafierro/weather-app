@@ -1,0 +1,52 @@
+{
+  "dependencies": {
+    "@expo-google-fonts/karla": "^0.2.0",
+    "@react-native-async-storage/async-storage": "^1.15.14",
+    "@react-native-community/checkbox": "^0.5.12",
+    "@react-native-masked-view/masked-view": "0.2.4",
+    "@react-navigation/bottom-tabs": "^6.3.1",
+    "@react-navigation/drawer": "^6.1.8",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
+    "@reduxjs/toolkit": "^1.8.2",
+    "@types/react-native-snap-carousel": "^3.8.5",
+    "axios": "^0.24.0",
+    "expo": "^43.0.0",
+    "expo-auth-session": "~3.3.0",
+    "expo-font": "~10.0.3",
+    "expo-random": "~11.1.2",
+    "jwt-decode": "2.2.0",
+    "react-dom": "16.13.1",
+    "react-hook-form": "^7.22.2",
+    "react-native": "^0.64.3",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-radio-buttons-group": "^2.2.10",
+    "react-native-reanimated": "^2.3.1",
+    "react-native-safe-area-context": "3.2.0",
+    "react-native-screens": "~3.4.0",
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-svg": "^12.1.1",
+    "react-native-svg-transformer": "^1.0.0",
+    "react-native-ui-lib": "^6.6.1",
+    "react-native-unimodules": "^0.14.10",
+    "react-native-web": "~0.13.12",
+    "react-redux": "^8.0.2",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "@types/jest": "^27.5.1",
+    "@types/react": "~17.0.21",
+    "@types/react-native": "^0.63.40",
+    "@types/react-test-renderer": "^18.0.0",
+    "typescript": "^4.6.4"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "private": true
+}

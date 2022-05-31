@@ -1,0 +1,8 @@
+{
+  "android": {
+    "package": "com.decimo.app"
+  },
+  "ios": {
+    "bundleIdentifier": "com.decimo.app"
+  }
+}
