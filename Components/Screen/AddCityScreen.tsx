@@ -23,7 +23,6 @@ const AddCityScreen = ({navigation}:AddCityScreenProps) => {
     const theme = useTheme();
 
     const changeHandler = (value: string) => {
-
         setText(value);
         setError("")
     }
@@ -36,18 +35,13 @@ const AddCityScreen = ({navigation}:AddCityScreenProps) => {
             });
 
             if (res){
-
-
                 if ( !store.cities.find((item: { name: string; }) => item.name === text )){
-
                     dispatch(addCity(text))
                     navigation.navigate("Home")
-
                 }else{
                     setError("City Already added")
                 }
             }
-
           };
 
         fetchData();

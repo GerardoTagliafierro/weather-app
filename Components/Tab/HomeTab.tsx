@@ -15,7 +15,11 @@ const HomeTab = () => {
                     options={{headerShown: false}}
                     name="Home" 
                     component={ HomeScreen } />
-                <Stack.Screen name="Details" component={ DetailsScreen } />
+                <Stack.Screen                     
+                    options={{headerShown: false}}
+                    name="Details" 
+                    component={ DetailsScreen } 
+                />
                 <Stack.Screen name="Add" component={ AddCityScreen } />
             </Stack.Navigator>
     )

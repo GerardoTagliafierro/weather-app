@@ -45,6 +45,13 @@ const styles = StyleSheet.create({
         width: "100%",
         backgroundColor: "#ffffff"
     },
+    homeScreenContainerStyle:{
+        flex: 1,
+        height: "100%",
+        width: "100%",
+        backgroundColor: "#ffffff",
+        paddingTop: 50
+    },
     CityCardButton:{
         flex: 0,
         padding: 0,

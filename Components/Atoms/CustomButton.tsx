@@ -1,16 +1,15 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Text, Pressable, StyleSheet } from 'react-native';
 
 type CustomButtonProps = {
     variant?: "contained-primary" | "contained-secondary" | "text-primary" | "text-secondary",
-    children: React.ComponentType | string,
+    children: React.ReactNode,
     onPress: Function,
     buttonStyle?: any,
     textStyle?: any
 }
 
 const CustomButton = ({variant, children, onPress, buttonStyle, textStyle}:CustomButtonProps) => {
-
 
     return (
         <Pressable style={{...styles[variant || "contained-primary"], ...buttonStyle}} onPress={() => onPress()}>

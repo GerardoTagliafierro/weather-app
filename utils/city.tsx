@@ -5,9 +5,17 @@ export const sortCitiesByAttr = (attr: string , cityArray: City[], order: boolea
     const newArray = [...cityArray];
 
     if (attr === "temp") {
-        newArray.sort((a,b) => a.temp - b.temp)
+        if (order) {
+            newArray.sort((a,b) => a.temp - b.temp)
+        }else{
+            newArray.sort((a,b) => b.temp - a.temp)
+        }
     }else{
-        newArray.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+        if (order){
+            newArray.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+        }else{
+            newArray.sort((a, b) => b.name > a.name && 1 || -1)
+        }
     }
 
     return newArray

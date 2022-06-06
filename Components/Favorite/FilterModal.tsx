@@ -5,6 +5,8 @@ import { sortCitiesByAttr } from '../../utils/city'
 import CustomButton from './../Atoms/CustomButton'
 import Typhography from './../Atoms/Typhography'
 import { City } from './../City/CityContext'
+import CheckBox from '../Atoms/CheckBox'
+import LabelCheckbox from '../Molecules/LabelCheckbox'
 
 interface FilterModalProps{
     openModal: boolean,
@@ -26,19 +28,29 @@ const FilterModal = ({openModal, setOpenModal, favoriteItems, setFavoriteItems}:
     }]  
     
     const [radioButtons, setRadioButtons] = useState<RadioButtonProps[]>(radioButtonsData);
-    const [orderCheckBox, setOrderCheckbox] = useState(false)
 
-    function onPressRadioButton(radioButtonsArray: RadioButtonProps[]) {
+    const [orderCheckBox, setOrderCheckbox] = useState<boolean>(false);
+
+    const sort = (order:boolean) => {
 
         const sortBy  = radioButtons.find((item) => item.selected === true )?.value
-
         if (sortBy){
-            setFavoriteItems(sortCitiesByAttr(sortBy, favoriteItems, !orderCheckBox));
+            setFavoriteItems(sortCitiesByAttr(sortBy, favoriteItems, !order));
         }
-        
+
+    }
+    
+    const  onPressRadioButton = (radioButtonsArray: RadioButtonProps[], order:boolean) => {
         setRadioButtons(radioButtonsArray);
+        sort(order);
     }
 
+    const onChangeCheckbox = (value:boolean) => {
+        setOrderCheckbox(value);
+        sort(value);
+    }
+
+    
     return (
         <Modal animationType="slide" visible={openModal}>
             <Typhography style={styles.modalLabel} variant="h1">
@@ -48,8 +60,19 @@ const FilterModal = ({openModal, setOpenModal, favoriteItems, setFavoriteItems}:
                 <RadioGroup 
                     layout='row'
                     radioButtons={radioButtons} 
-                    onPress={onPressRadioButton} 
+                    onPress={(radioButtonsArray) => onPressRadioButton(radioButtonsArray, orderCheckBox)} 
                 />
+                <LabelCheckbox 
+                    checkBoxProps={{
+                        checked: orderCheckBox,
+                        onChange: (value) => {onChangeCheckbox(value)}
+                    }}
+                    labelProps={{
+                        variant: "h3",
+                    }}
+                >
+                    Reverse Order
+                </LabelCheckbox>
                 <CustomButton  
                     buttonStyle={styles.buttonStyle} 
                     onPress={() => setOpenModal(false)} 

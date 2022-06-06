@@ -15,7 +15,7 @@ const HomeScreen = (props:any) => {
     const theme = useTheme();
 
     return (
-        <View style={theme.screenContainerStyle}>
+        <View style={theme.homeScreenContainerStyle}>
             <CitySwitch                    
                 mainCity={store.mainCity}
                 navigation={props.navigation}

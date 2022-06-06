@@ -70,7 +70,9 @@ const Root = () => {
                         },
                         tabBarIconStyle: { display: "none" },
                     }}>
-                        <Tab.Screen name="HomeTab" component={HomeTab} />
+                        <Tab.Screen 
+                            options={{headerShown: false}}
+                            name="HomeTab" component={HomeTab} />
                         <Tab.Screen name="Favorites" component={FavoriteTab} />
                         <Tab.Screen name="Slider" component={SliderTab} />
                     </Tab.Navigator>
